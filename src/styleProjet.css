@@ -1,0 +1,19 @@
+/* Styles principaux du projet */
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(ellipse at center, #e6dacb 0%, #d1c3ae 100%);
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.app-damier {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 24px 0;
+}

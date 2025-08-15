@@ -1,0 +1,542 @@
+/* Styles pour la page d'inscription */
+
+/* Hérite des variables CSS de la page de connexion */
+@import './LoginPage.css';
+
+/* Variables CSS spécifiques à l'inscription */
+:root {
+  --register-primary: #2563eb; /* Couleur principale */
+  --register-success: #10b981; /* Couleur de succès */
+  --register-error: #ef4444; /* Couleur d'erreur */
+  --register-warning: #f59e0b; /* Couleur d'avertissement */
+}
+
+/* Page d'inscription principale */
+.register-page {
+  min-height: 100vh; /* Hauteur minimale de la fenêtre */
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); /* Dégradé de fond */
+  display: flex; /* Affichage flexbox */
+  align-items: center; /* Centrage vertical */
+  justify-content: center; /* Centrage horizontal */
+  padding: 20px; /* Espacement externe */
+  position: relative; /* Position relative pour les éléments enfants */
+}
+
+/* Effet de fond avec motif différent */
+.register-page::before {
+  content: ''; /* Contenu vide pour l'effet */
+  position: absolute; /* Position absolue */
+  top: 0; /* Position en haut */
+  left: 0; /* Position à gauche */
+  right: 0; /* Position à droite */
+  bottom: 0; /* Position en bas */
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="hexagons" width="28" height="24" patternUnits="userSpaceOnUse"><polygon points="14,1 24,7 24,17 14,23 4,17 4,7" fill="none" stroke="rgba(37,99,235,0.08)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23hexagons)"/></svg>'); /* Motif hexagonal */
+  opacity: 0.6; /* Opacité réduite */
+}
+
+/* Conteneur du formulaire d'inscription */
+.register-container {
+  background: rgba(255, 255, 255, 0.98); /* Fond blanc semi-transparent */
+  border-radius: 24px; /* Coins arrondis */
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); /* Ombre large */
+  padding: 40px; /* Espacement interne */
+  width: 100%; /* Largeur complète */
+  max-width: 520px; /* Largeur maximale plus large que la connexion */
+  position: relative; /* Position relative */
+  z-index: 1; /* Index de profondeur */
+  backdrop-filter: blur(15px); /* Effet de flou plus prononcé */
+  border: 1px solid rgba(255, 255, 255, 0.9); /* Bordure semi-transparente */
+  animation: slideUp 0.6s ease-out; /* Animation d'entrée */
+}
+
+/* En-tête de la page d'inscription */
+.register-header {
+  text-align: center; /* Centrage du texte */
+  margin-bottom: 35px; /* Espacement en bas */
+}
+
+.register-icon {
+  font-size: 4rem; /* Taille de l'icône plus grande */
+  margin-bottom: 20px; /* Espacement en bas */
+  display: block; /* Affichage en bloc */
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1)); /* Ombre pour l'icône */
+}
+
+.register-title {
+  font-size: 2.2rem; /* Taille du titre */
+  font-weight: 800; /* Police très grasse */
+  color: var(--register-primary); /* Couleur bleue */
+  margin-bottom: 12px; /* Espacement en bas */
+  background: linear-gradient(135deg, var(--register-primary) 0%, #1e40af 100%); /* Dégradé de texte */
+  -webkit-background-clip: text; /* Clip du fond sur le texte */
+  -webkit-text-fill-color: transparent; /* Rend le texte transparent pour voir le dégradé */
+  background-clip: text; /* Support pour d'autres navigateurs */
+}
+
+.register-subtitle {
+  color: #64748b; /* Couleur du texte clair */
+  font-size: 1.1rem; /* Taille de police */
+  font-weight: 500; /* Police semi-grasse */
+  line-height: 1.5; /* Espacement des lignes */
+}
+
+/* Sélecteur de type d'utilisateur */
+.user-type-selector {
+  display: grid; /* Affichage en grille */
+  grid-template-columns: 1fr 1fr; /* Deux colonnes égales */
+  gap: 15px; /* Espacement entre les éléments */
+  margin-bottom: 30px; /* Espacement en bas */
+}
+
+.user-type-label {
+  cursor: pointer; /* Curseur pointer */
+  position: relative; /* Position relative */
+}
+
+.user-type-radio {
+  position: absolute; /* Position absolue pour cacher le radio */
+  opacity: 0; /* Invisible */
+  pointer-events: none; /* Pas d'interaction */
+}
+
+.user-type-card {
+  background: #f8fafc; /* Fond clair */
+  border: 2px solid #e2e8f0; /* Bordure claire */
+  border-radius: 16px; /* Coins arrondis */
+  padding: 20px 15px; /* Espacement interne */
+  text-align: center; /* Centrage du contenu */
+  transition: all 0.3s ease; /* Transition fluide */
+  min-height: 120px; /* Hauteur minimale */
+  display: flex; /* Affichage flexbox */
+  flex-direction: column; /* Direction verticale */
+  justify-content: center; /* Centrage vertical */
+  gap: 10px; /* Espacement entre les éléments */
+}
+
+.user-type-card:hover {
+  border-color: var(--register-primary); /* Bordure bleue au survol */
+  transform: translateY(-2px); /* Légère élévation */
+  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.15); /* Ombre bleue */
+}
+
+.user-type-radio:checked + .user-type-card {
+  background: rgba(37, 99, 235, 0.05); /* Fond bleu léger quand sélectionné */
+  border-color: var(--register-primary); /* Bordure bleue quand sélectionné */
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1); /* Ombre de focus */
+}
+
+.user-type-icon {
+  font-size: 2.5rem; /* Taille des icônes */
+  margin-bottom: 8px; /* Espacement en bas */
+}
+
+.user-type-text h3 {
+  font-size: 1.1rem; /* Taille du titre */
+  font-weight: 600; /* Police semi-grasse */
+  color: #1e293b; /* Couleur du texte */
+  margin-bottom: 5px; /* Espacement en bas */
+}
+
+.user-type-text p {
+  font-size: 0.85rem; /* Taille de la description */
+  color: #64748b; /* Couleur du texte clair */
+  margin: 0; /* Pas de marge */
+}
+
+/* Formulaire d'inscription */
+.register-form {
+  margin-bottom: 30px; /* Espacement en bas */
+}
+
+/* Ligne de formulaire pour prénom/nom */
+.form-row {
+  display: grid; /* Affichage en grille */
+  grid-template-columns: 1fr 1fr; /* Deux colonnes égales */
+  gap: 15px; /* Espacement entre les colonnes */
+  margin-bottom: 20px; /* Espacement en bas */
+}
+
+/* Groupes de champs de formulaire */
+.form-group {
+  margin-bottom: 20px; /* Espacement en bas */
+}
+
+/* Labels des champs */
+.form-label {
+  display: block; /* Affichage en bloc */
+  font-weight: 600; /* Police semi-grasse */
+  color: #1e293b; /* Couleur du texte */
+  margin-bottom: 8px; /* Espacement en bas */
+  font-size: 0.95rem; /* Taille de police */
+}
+
+/* Champs de saisie */
+.form-input {
+  width: 100%; /* Largeur complète */
+  padding: 14px 16px; /* Espacement interne */
+  border: 2px solid #e2e8f0; /* Bordure claire */
+  border-radius: 12px; /* Coins arrondis */
+  font-size: 1rem; /* Taille de police */
+  color: #1e293b; /* Couleur du texte */
+  background: #ffffff; /* Fond blanc */
+  transition: all 0.3s ease; /* Transition fluide */
+  box-sizing: border-box; /* Inclut padding et border dans la largeur */
+}
+
+.form-input:focus {
+  outline: none; /* Supprime le contour de focus */
+  border-color: var(--register-primary); /* Bordure bleue au focus */
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1); /* Ombre de focus */
+  transform: translateY(-1px); /* Légère élévation */
+}
+
+.form-input.error {
+  border-color: var(--register-error); /* Bordure rouge pour les erreurs */
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1); /* Ombre rouge */
+}
+
+.form-input:disabled {
+  background: #f8fafc; /* Fond gris quand désactivé */
+  cursor: not-allowed; /* Curseur interdit */
+  opacity: 0.7; /* Opacité réduite */
+}
+
+/* Messages d'erreur par champ */
+.field-error {
+  display: block; /* Affichage en bloc */
+  color: var(--register-error); /* Couleur rouge */
+  font-size: 0.85rem; /* Petite taille de police */
+  font-weight: 500; /* Police semi-grasse */
+  margin-top: 6px; /* Espacement en haut */
+  line-height: 1.3; /* Espacement des lignes serré */
+}
+
+/* Section des checkboxes */
+.form-checkboxes {
+  margin-bottom: 25px; /* Espacement en bas */
+  display: flex; /* Affichage flexbox */
+  flex-direction: column; /* Direction verticale */
+  gap: 15px; /* Espacement entre les éléments */
+}
+
+/* Labels des checkboxes */
+.checkbox-label {
+  display: flex; /* Affichage flexbox */
+  align-items: flex-start; /* Alignement en haut */
+  gap: 10px; /* Espacement entre la case et le texte */
+  cursor: pointer; /* Curseur pointer */
+  font-size: 0.9rem; /* Taille de police */
+  line-height: 1.4; /* Espacement des lignes */
+}
+
+.checkbox-label.error .checkbox-text {
+  color: var(--register-error); /* Couleur rouge pour les erreurs */
+}
+
+/* Cases à cocher */
+.checkbox-input {
+  width: 20px; /* Largeur */
+  height: 20px; /* Hauteur */
+  accent-color: var(--register-primary); /* Couleur d'accent */
+  margin-top: 2px; /* Légère marge pour l'alignement */
+  flex-shrink: 0; /* Empêche la réduction */
+}
+
+.checkbox-text {
+  color: #64748b; /* Couleur du texte */
+  font-weight: 500; /* Police semi-grasse */
+}
+
+/* Liens dans les checkboxes */
+.checkbox-text .link {
+  color: var(--register-primary); /* Couleur bleue */
+  text-decoration: none; /* Supprime le soulignement */
+  font-weight: 600; /* Police semi-grasse */
+  transition: all 0.3s ease; /* Transition fluide */
+}
+
+.checkbox-text .link:hover {
+  color: #1d4ed8; /* Couleur plus foncée au survol */
+  text-decoration: underline; /* Soulignement au survol */
+}
+
+/* Messages d'erreur généraux */
+.error-message {
+  background: rgba(239, 68, 68, 0.08); /* Fond rouge très léger */
+  border: 1px solid rgba(239, 68, 68, 0.2); /* Bordure rouge */
+  border-radius: 12px; /* Coins arrondis */
+  padding: 14px 18px; /* Espacement interne */
+  margin-bottom: 20px; /* Espacement en bas */
+  display: flex; /* Affichage flexbox */
+  align-items: center; /* Alignement vertical */
+  gap: 10px; /* Espacement entre l'icône et le texte */
+  color: var(--register-error); /* Couleur du texte d'erreur */
+  font-size: 0.9rem; /* Taille de police */
+  font-weight: 500; /* Police semi-grasse */
+}
+
+.error-icon {
+  font-size: 1.2rem; /* Taille de l'icône */
+  flex-shrink: 0; /* Empêche la réduction */
+}
+
+/* Messages de succès */
+.success-message {
+  background: rgba(16, 185, 129, 0.08); /* Fond vert très léger */
+  border: 1px solid rgba(16, 185, 129, 0.2); /* Bordure verte */
+  border-radius: 12px; /* Coins arrondis */
+  padding: 14px 18px; /* Espacement interne */
+  margin-bottom: 20px; /* Espacement en bas */
+  display: flex; /* Affichage flexbox */
+  align-items: center; /* Alignement vertical */
+  gap: 10px; /* Espacement entre l'icône et le texte */
+  color: var(--register-success); /* Couleur du texte de succès */
+  font-size: 0.9rem; /* Taille de police */
+  font-weight: 500; /* Police semi-grasse */
+}
+
+.success-icon {
+  font-size: 1.2rem; /* Taille de l'icône */
+  flex-shrink: 0; /* Empêche la réduction */
+}
+
+/* Bouton d'inscription principal */
+.register-button {
+  width: 100%; /* Largeur complète */
+  padding: 16px 24px; /* Espacement interne */
+  background: linear-gradient(135deg, var(--register-primary) 0%, #1e40af 100%); /* Dégradé bleu */
+  color: white; /* Texte blanc */
+  border: none; /* Pas de bordure */
+  border-radius: 14px; /* Coins arrondis */
+  font-size: 1.1rem; /* Taille de police */
+  font-weight: 600; /* Police semi-grasse */
+  cursor: pointer; /* Curseur pointer */
+  transition: all 0.3s ease; /* Transition fluide */
+  display: flex; /* Affichage flexbox */
+  align-items: center; /* Alignement vertical */
+  justify-content: center; /* Centrage horizontal */
+  gap: 10px; /* Espacement entre les éléments */
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3); /* Ombre bleue */
+}
+
+.register-button:hover:not(:disabled) {
+  background: linear-gradient(135deg, #1d4ed8 0%, #1e3a8a 100%); /* Dégradé plus foncé au survol */
+  transform: translateY(-2px); /* Légère élévation */
+  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4); /* Ombre plus prononcée */
+}
+
+.register-button:disabled {
+  background: #94a3b8; /* Fond gris quand désactivé */
+  cursor: not-allowed; /* Curseur interdit */
+  transform: none; /* Pas de transformation */
+  box-shadow: none; /* Pas d'ombre */
+}
+
+/* Spinner de chargement */
+.loading-spinner {
+  width: 22px; /* Largeur légèrement plus grande */
+  height: 22px; /* Hauteur légèrement plus grande */
+  border: 2px solid rgba(255, 255, 255, 0.3); /* Bordure claire */
+  border-radius: 50%; /* Forme circulaire */
+  border-top-color: white; /* Couleur du haut */
+  animation: spin 1s linear infinite; /* Animation de rotation */
+}
+
+/* Animation de rotation */
+@keyframes spin {
+  to {
+    transform: rotate(360deg); /* Rotation complète */
+  }
+}
+
+/* Séparateur */
+.register-divider {
+  position: relative; /* Position relative */
+  text-align: center; /* Centrage du texte */
+  margin: 30px 0; /* Espacement vertical */
+}
+
+.register-divider::before {
+  content: ''; /* Contenu vide */
+  position: absolute; /* Position absolue */
+  top: 50%; /* Position verticale centrale */
+  left: 0; /* Position à gauche */
+  right: 0; /* Position à droite */
+  height: 1px; /* Hauteur de la ligne */
+  background: linear-gradient(90deg, transparent 0%, #e2e8f0 50%, transparent 100%); /* Dégradé de ligne */
+}
+
+.divider-text {
+  background: rgba(255, 255, 255, 0.98); /* Fond blanc */
+  padding: 0 20px; /* Espacement horizontal */
+  color: #64748b; /* Couleur du texte */
+  font-size: 0.9rem; /* Taille de police */
+  font-weight: 500; /* Police semi-grasse */
+}
+
+/* Bouton d'inscription Google */
+.google-register-button {
+  width: 100%; /* Largeur complète */
+  padding: 14px 24px; /* Espacement interne */
+  background: white; /* Fond blanc */
+  color: #1e293b; /* Couleur du texte */
+  border: 2px solid #e2e8f0; /* Bordure */
+  border-radius: 12px; /* Coins arrondis */
+  font-size: 1rem; /* Taille de police */
+  font-weight: 600; /* Police semi-grasse */
+  cursor: pointer; /* Curseur pointer */
+  transition: all 0.3s ease; /* Transition fluide */
+  display: flex; /* Affichage flexbox */
+  align-items: center; /* Alignement vertical */
+  justify-content: center; /* Centrage horizontal */
+  gap: 12px; /* Espacement entre les éléments */
+  margin-bottom: 30px; /* Espacement en bas */
+}
+
+.google-register-button:hover:not(:disabled) {
+  border-color: var(--register-primary); /* Bordure bleue au survol */
+  transform: translateY(-2px); /* Légère élévation */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* Ombre */
+}
+
+.google-register-button:disabled {
+  opacity: 0.7; /* Opacité réduite */
+  cursor: not-allowed; /* Curseur interdit */
+}
+
+.google-icon {
+  font-size: 1.3rem; /* Taille de l'icône */
+}
+
+/* Pied de page d'inscription */
+.register-footer {
+  text-align: center; /* Centrage du texte */
+}
+
+.footer-text {
+  color: #64748b; /* Couleur du texte clair */
+  font-size: 0.95rem; /* Taille de police */
+  margin: 0; /* Pas de marge */
+}
+
+/* Lien de connexion */
+.login-link {
+  color: var(--register-primary); /* Couleur bleue */
+  text-decoration: none; /* Supprime le soulignement */
+  font-weight: 600; /* Police semi-grasse */
+  transition: all 0.3s ease; /* Transition fluide */
+}
+
+.login-link:hover {
+  color: #1d4ed8; /* Couleur plus foncée au survol */
+  text-decoration: underline; /* Soulignement au survol */
+}
+
+/* Responsive design pour tablettes */
+@media (max-width: 768px) {
+  .register-container {
+    padding: 35px 30px; /* Réduit l'espacement sur tablette */
+    margin: 15px; /* Ajoute une marge externe */
+    max-width: 100%; /* Largeur complète sur tablette */
+  }
+  
+  .register-title {
+    font-size: 2rem; /* Réduit la taille du titre */
+  }
+  
+  .user-type-selector {
+    grid-template-columns: 1fr; /* Une seule colonne sur tablette */
+    gap: 12px; /* Réduit l'espacement */
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr; /* Une seule colonne pour prénom/nom */
+    gap: 0; /* Supprime l'espacement */
+  }
+  
+  .user-type-card {
+    min-height: auto; /* Hauteur automatique */
+    padding: 15px; /* Réduit l'espacement */
+  }
+}
+
+/* Responsive design pour mobiles */
+@media (max-width: 480px) {
+  .register-page {
+    padding: 10px; /* Réduit l'espacement sur mobile */
+  }
+  
+  .register-container {
+    padding: 25px 20px; /* Réduit encore l'espacement */
+    margin: 5px; /* Réduit la marge externe */
+    border-radius: 20px; /* Réduit les coins arrondis */
+  }
+  
+  .register-title {
+    font-size: 1.8rem; /* Réduit encore la taille du titre */
+  }
+  
+  .register-icon {
+    font-size: 3.5rem; /* Réduit la taille de l'icône */
+  }
+  
+  .user-type-card {
+    padding: 12px; /* Réduit l'espacement */
+  }
+  
+  .user-type-icon {
+    font-size: 2rem; /* Réduit la taille des icônes */
+  }
+  
+  .form-input,
+  .register-button,
+  .google-register-button {
+    padding: 12px 16px; /* Réduit l'espacement interne */
+  }
+  
+  .checkbox-label {
+    font-size: 0.85rem; /* Réduit la taille du texte */
+  }
+  
+  .checkbox-input {
+    width: 18px; /* Réduit la taille des checkboxes */
+    height: 18px; /* Réduit la taille des checkboxes */
+  }
+}
+
+/* Animation d'entrée pour le conteneur */
+@keyframes slideUp {
+  from {
+    opacity: 0; /* Transparent au début */
+    transform: translateY(40px) scale(0.95); /* Position plus basse et légèrement plus petit */
+  }
+  to {
+    opacity: 1; /* Opaque à la fin */
+    transform: translateY(0) scale(1); /* Position normale et taille normale */
+  }
+}
+
+/* Animation pour les cartes de type d'utilisateur */
+.user-type-card {
+  animation: fadeInUp 0.5s ease-out; /* Animation d'entrée */
+}
+
+.user-type-selector .user-type-label:nth-child(1) .user-type-card {
+  animation-delay: 0.1s; /* Délai pour la première carte */
+}
+
+.user-type-selector .user-type-label:nth-child(2) .user-type-card {
+  animation-delay: 0.2s; /* Délai pour la deuxième carte */
+}
+
+/* Animation de montée avec fondu */
+@keyframes fadeInUp {
+  from {
+    opacity: 0; /* Transparent au début */
+    transform: translateY(20px); /* Position plus basse */
+  }
+  to {
+    opacity: 1; /* Opaque à la fin */
+    transform: translateY(0); /* Position normale */
+  }
+} 

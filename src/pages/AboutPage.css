@@ -1,0 +1,682 @@
+/* Styles pour la page À propos */
+
+/* Variables CSS pour la cohérence */
+:root {
+  --about-primary: #2563eb; /* Couleur principale */
+  --about-secondary: #f59e0b; /* Couleur secondaire */
+  --about-success: #10b981; /* Couleur de succès */
+  --about-background: #f8fafc; /* Fond de la page */
+  --about-text: #1e293b; /* Couleur du texte principal */
+  --about-text-light: #64748b; /* Couleur du texte clair */
+  --about-border: #e2e8f0; /* Couleur des bordures */
+  --about-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); /* Ombre */
+  --about-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1); /* Ombre large */
+}
+
+/* Page À propos principale */
+.about-page {
+  background: white; /* Fond blanc */
+  min-height: 100vh; /* Hauteur minimale de la fenêtre */
+  padding-top: 70px; /* Espacement pour la navbar fixe */
+}
+
+/* Conteneur principal avec largeur maximale */
+.about-container {
+  max-width: 1200px; /* Largeur maximale */
+  margin: 0 auto; /* Centrage horizontal */
+  padding: 0 20px; /* Espacement horizontal */
+}
+
+/* Section Hero de la page À propos */
+.about-hero {
+  background: linear-gradient(135deg, var(--about-primary) 0%, #1e40af 100%); /* Dégradé bleu */
+  color: white; /* Texte blanc */
+  padding: 100px 0; /* Espacement vertical */
+  text-align: center; /* Centrage du contenu */
+  position: relative; /* Position relative pour les éléments enfants */
+  overflow: hidden; /* Cache le débordement */
+}
+
+.about-hero::before {
+  content: ''; /* Contenu vide pour l'effet */
+  position: absolute; /* Position absolue */
+  top: 0; /* Position en haut */
+  left: 0; /* Position à gauche */
+  right: 0; /* Position à droite */
+  bottom: 0; /* Position en bas */
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="stars" width="30" height="30" patternUnits="userSpaceOnUse"><circle cx="15" cy="15" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="5" cy="25" r="1" fill="rgba(255,255,255,0.08)"/><circle cx="25" cy="5" r="1.5" fill="rgba(255,255,255,0.06)"/></pattern></defs><rect width="100" height="100" fill="url(%23stars)"/></svg>'); /* Motif d'étoiles */
+  opacity: 0.4; /* Opacité réduite */
+}
+
+.about-hero-content {
+  position: relative; /* Position relative pour être au-dessus du fond */
+  z-index: 1; /* Index de profondeur */
+  max-width: 800px; /* Largeur maximale */
+  margin: 0 auto; /* Centrage horizontal */
+  padding: 0 20px; /* Espacement horizontal */
+}
+
+.about-title {
+  font-size: 3.5rem; /* Taille de police large */
+  font-weight: 800; /* Police très grasse */
+  margin-bottom: 20px; /* Espacement en bas */
+  line-height: 1.2; /* Espacement des lignes serré */
+  animation: slideInDown 0.8s ease-out; /* Animation d'entrée */
+}
+
+.about-subtitle {
+  font-size: 1.3rem; /* Taille de police */
+  margin-bottom: 30px; /* Espacement en bas */
+  opacity: 0.95; /* Légère transparence */
+  line-height: 1.5; /* Espacement des lignes */
+  animation: slideInUp 0.8s ease-out 0.2s both; /* Animation d'entrée avec délai */
+}
+
+.about-hero-icon {
+  font-size: 4rem; /* Taille de l'icône */
+  animation: bounce 2s infinite; /* Animation de rebond infinie */
+}
+
+/* Titres de sections */
+.section-title {
+  font-size: 2.5rem; /* Taille de police */
+  font-weight: 700; /* Police grasse */
+  color: var(--about-text); /* Couleur du texte */
+  margin-bottom: 50px; /* Espacement en bas */
+  position: relative; /* Position relative pour les effets */
+}
+
+.section-title.centered {
+  text-align: center; /* Centrage du titre */
+}
+
+.section-title::after {
+  content: ''; /* Contenu vide pour la ligne décorative */
+  position: absolute; /* Position absolue */
+  bottom: -15px; /* Position sous le titre */
+  left: 0; /* Position à gauche */
+  width: 60px; /* Largeur de la ligne */
+  height: 4px; /* Hauteur de la ligne */
+  background: linear-gradient(90deg, var(--about-primary), var(--about-secondary)); /* Dégradé de couleur */
+  border-radius: 2px; /* Coins arrondis */
+}
+
+.section-title.centered::after {
+  left: 50%; /* Position au centre */
+  transform: translateX(-50%); /* Centrage de la ligne */
+}
+
+/* Section de l'histoire */
+.about-story {
+  padding: 100px 0; /* Espacement vertical */
+  background: white; /* Fond blanc */
+}
+
+.about-story .about-container {
+  display: grid; /* Affichage en grille */
+  grid-template-columns: 2fr 1fr; /* Deux colonnes avec proportions */
+  gap: 60px; /* Espacement entre les colonnes */
+  align-items: center; /* Alignement vertical */
+}
+
+.story-text p {
+  font-size: 1.1rem; /* Taille de police */
+  line-height: 1.7; /* Espacement des lignes */
+  color: var(--about-text-light); /* Couleur du texte clair */
+  margin-bottom: 20px; /* Espacement en bas */
+}
+
+.story-illustration {
+  background: linear-gradient(135deg, var(--about-background) 0%, #e2e8f0 100%); /* Dégradé de fond */
+  border-radius: 20px; /* Coins arrondis */
+  padding: 40px; /* Espacement interne */
+  text-align: center; /* Centrage du contenu */
+  box-shadow: var(--about-shadow-lg); /* Ombre large */
+  border: 1px solid var(--about-border); /* Bordure */
+}
+
+.illustration-icon {
+  font-size: 4rem; /* Taille de l'icône */
+  margin-bottom: 20px; /* Espacement en bas */
+  display: block; /* Affichage en bloc */
+}
+
+.illustration-text {
+  font-size: 1.1rem; /* Taille de police */
+  font-weight: 600; /* Police semi-grasse */
+  color: var(--about-primary); /* Couleur bleue */
+}
+
+/* Section de la mission */
+.about-mission {
+  padding: 100px 0; /* Espacement vertical */
+  background: var(--about-background); /* Fond clair */
+}
+
+.mission-content {
+  display: grid; /* Affichage en grille */
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Colonnes adaptatives */
+  gap: 40px; /* Espacement entre les éléments */
+  margin-top: 20px; /* Espacement en haut */
+}
+
+.mission-card {
+  background: white; /* Fond blanc */
+  padding: 40px 30px; /* Espacement interne */
+  border-radius: 20px; /* Coins arrondis */
+  text-align: center; /* Centrage du contenu */
+  box-shadow: var(--about-shadow); /* Ombre */
+  transition: all 0.3s ease; /* Transition fluide */
+  border: 1px solid var(--about-border); /* Bordure */
+}
+
+.mission-card:hover {
+  transform: translateY(-5px); /* Élévation au survol */
+  box-shadow: var(--about-shadow-lg); /* Ombre plus prononcée */
+}
+
+.mission-icon {
+  font-size: 3.5rem; /* Taille de l'icône */
+  margin-bottom: 25px; /* Espacement en bas */
+  display: block; /* Affichage en bloc */
+}
+
+.mission-card h3 {
+  font-size: 1.5rem; /* Taille du titre */
+  font-weight: 600; /* Police semi-grasse */
+  color: var(--about-text); /* Couleur du texte */
+  margin-bottom: 20px; /* Espacement en bas */
+}
+
+.mission-card p {
+  color: var(--about-text-light); /* Couleur du texte clair */
+  line-height: 1.6; /* Espacement des lignes */
+  font-size: 1rem; /* Taille de police */
+}
+
+/* Section des statistiques */
+.about-stats {
+  padding: 100px 0; /* Espacement vertical */
+  background: white; /* Fond blanc */
+}
+
+.stats-grid {
+  display: grid; /* Affichage en grille */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Colonnes adaptatives */
+  gap: 40px; /* Espacement entre les éléments */
+  margin-top: 20px; /* Espacement en haut */
+}
+
+.stat-card {
+  text-align: center; /* Centrage du contenu */
+  padding: 30px 20px; /* Espacement interne */
+  background: linear-gradient(135deg, var(--about-primary) 0%, #1e40af 100%); /* Dégradé bleu */
+  border-radius: 20px; /* Coins arrondis */
+  color: white; /* Texte blanc */
+  transition: all 0.3s ease; /* Transition fluide */
+  box-shadow: var(--about-shadow); /* Ombre */
+}
+
+.stat-card:hover {
+  transform: translateY(-5px) scale(1.02); /* Élévation et agrandissement au survol */
+  box-shadow: 0 15px 30px rgba(37, 99, 235, 0.3); /* Ombre bleue */
+}
+
+.stat-icon {
+  font-size: 3rem; /* Taille de l'icône */
+  margin-bottom: 15px; /* Espacement en bas */
+  display: block; /* Affichage en bloc */
+}
+
+.stat-number {
+  font-size: 2.5rem; /* Taille du chiffre */
+  font-weight: 800; /* Police très grasse */
+  margin-bottom: 10px; /* Espacement en bas */
+}
+
+.stat-label {
+  font-size: 1.1rem; /* Taille du label */
+  font-weight: 500; /* Police semi-grasse */
+  opacity: 0.9; /* Légère transparence */
+}
+
+/* Section des valeurs */
+.about-values {
+  padding: 100px 0; /* Espacement vertical */
+  background: var(--about-background); /* Fond clair */
+}
+
+.values-grid {
+  display: grid; /* Affichage en grille */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Colonnes adaptatives */
+  gap: 30px; /* Espacement entre les éléments */
+  margin-top: 20px; /* Espacement en haut */
+}
+
+.value-card {
+  background: white; /* Fond blanc */
+  padding: 35px 25px; /* Espacement interne */
+  border-radius: 16px; /* Coins arrondis */
+  text-align: center; /* Centrage du contenu */
+  box-shadow: var(--about-shadow); /* Ombre */
+  transition: all 0.3s ease; /* Transition fluide */
+  border: 1px solid var(--about-border); /* Bordure */
+}
+
+.value-card:hover {
+  transform: translateY(-3px); /* Élévation au survol */
+  box-shadow: var(--about-shadow-lg); /* Ombre plus prononcée */
+  border-color: var(--about-primary); /* Bordure colorée au survol */
+}
+
+.value-icon {
+  font-size: 3rem; /* Taille de l'icône */
+  margin-bottom: 20px; /* Espacement en bas */
+  display: block; /* Affichage en bloc */
+}
+
+.value-title {
+  font-size: 1.3rem; /* Taille du titre */
+  font-weight: 600; /* Police semi-grasse */
+  color: var(--about-text); /* Couleur du texte */
+  margin-bottom: 15px; /* Espacement en bas */
+}
+
+.value-description {
+  color: var(--about-text-light); /* Couleur du texte clair */
+  line-height: 1.6; /* Espacement des lignes */
+  font-size: 0.95rem; /* Taille de police */
+  margin: 0; /* Pas de marge */
+}
+
+/* Section de l'équipe */
+.about-team {
+  padding: 100px 0; /* Espacement vertical */
+  background: white; /* Fond blanc */
+}
+
+.team-intro {
+  text-align: center; /* Centrage du texte */
+  font-size: 1.2rem; /* Taille de police */
+  color: var(--about-text-light); /* Couleur du texte clair */
+  margin-bottom: 50px; /* Espacement en bas */
+  max-width: 600px; /* Largeur maximale */
+  margin-left: auto; /* Centrage horizontal */
+  margin-right: auto; /* Centrage horizontal */
+}
+
+.team-grid {
+  display: grid; /* Affichage en grille */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Colonnes adaptatives */
+  gap: 40px; /* Espacement entre les éléments */
+  margin-top: 20px; /* Espacement en haut */
+}
+
+.team-card {
+  background: white; /* Fond blanc */
+  padding: 40px 30px; /* Espacement interne */
+  border-radius: 20px; /* Coins arrondis */
+  text-align: center; /* Centrage du contenu */
+  box-shadow: var(--about-shadow); /* Ombre */
+  transition: all 0.3s ease; /* Transition fluide */
+  border: 1px solid var(--about-border); /* Bordure */
+}
+
+.team-card:hover {
+  transform: translateY(-5px); /* Élévation au survol */
+  box-shadow: var(--about-shadow-lg); /* Ombre plus prononcée */
+}
+
+.team-image {
+  font-size: 4rem; /* Taille de l'avatar */
+  margin-bottom: 20px; /* Espacement en bas */
+  display: block; /* Affichage en bloc */
+}
+
+.team-name {
+  font-size: 1.4rem; /* Taille du nom */
+  font-weight: 600; /* Police semi-grasse */
+  color: var(--about-text); /* Couleur du texte */
+  margin-bottom: 8px; /* Espacement en bas */
+}
+
+.team-role {
+  font-size: 1rem; /* Taille du rôle */
+  font-weight: 500; /* Police semi-grasse */
+  color: var(--about-primary); /* Couleur bleue */
+  margin-bottom: 15px; /* Espacement en bas */
+}
+
+.team-description {
+  color: var(--about-text-light); /* Couleur du texte clair */
+  line-height: 1.6; /* Espacement des lignes */
+  font-size: 0.95rem; /* Taille de police */
+  margin: 0; /* Pas de marge */
+}
+
+/* Section des témoignages */
+.about-testimonials {
+  padding: 100px 0; /* Espacement vertical */
+  background: var(--about-background); /* Fond clair */
+}
+
+.testimonials-grid {
+  display: grid; /* Affichage en grille */
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Colonnes adaptatives */
+  gap: 40px; /* Espacement entre les éléments */
+  margin-top: 20px; /* Espacement en haut */
+}
+
+.testimonial-card {
+  background: white; /* Fond blanc */
+  padding: 40px 35px; /* Espacement interne */
+  border-radius: 20px; /* Coins arrondis */
+  box-shadow: var(--about-shadow); /* Ombre */
+  transition: all 0.3s ease; /* Transition fluide */
+  border: 1px solid var(--about-border); /* Bordure */
+  position: relative; /* Position relative pour les éléments enfants */
+}
+
+.testimonial-card:hover {
+  transform: translateY(-3px); /* Élévation au survol */
+  box-shadow: var(--about-shadow-lg); /* Ombre plus prononcée */
+}
+
+.testimonial-quote {
+  font-size: 4rem; /* Taille du guillemet */
+  color: var(--about-primary); /* Couleur bleue */
+  font-weight: 800; /* Police très grasse */
+  position: absolute; /* Position absolue */
+  top: 15px; /* Position en haut */
+  left: 25px; /* Position à gauche */
+  opacity: 0.3; /* Transparence */
+}
+
+.testimonial-text {
+  font-size: 1.1rem; /* Taille du texte */
+  line-height: 1.6; /* Espacement des lignes */
+  color: var(--about-text-light); /* Couleur du texte clair */
+  margin-bottom: 25px; /* Espacement en bas */
+  font-style: italic; /* Style italique */
+  position: relative; /* Position relative */
+  z-index: 1; /* Index de profondeur */
+}
+
+.testimonial-author {
+  display: flex; /* Affichage flexbox */
+  align-items: center; /* Alignement vertical */
+  gap: 15px; /* Espacement entre les éléments */
+}
+
+.author-avatar {
+  font-size: 2.5rem; /* Taille de l'avatar */
+}
+
+.author-name {
+  font-size: 1.1rem; /* Taille du nom */
+  font-weight: 600; /* Police semi-grasse */
+  color: var(--about-text); /* Couleur du texte */
+  margin-bottom: 5px; /* Espacement en bas */
+}
+
+.author-title {
+  font-size: 0.9rem; /* Taille du titre */
+  color: var(--about-text-light); /* Couleur du texte clair */
+  font-weight: 500; /* Police semi-grasse */
+}
+
+/* Section d'appel à l'action */
+.about-cta {
+  padding: 100px 0; /* Espacement vertical */
+  background: linear-gradient(135deg, var(--about-text) 0%, #334155 100%); /* Dégradé sombre */
+  color: white; /* Texte blanc */
+  text-align: center; /* Centrage du contenu */
+}
+
+.cta-content {
+  max-width: 800px; /* Largeur maximale */
+  margin: 0 auto; /* Centrage horizontal */
+  padding: 0 20px; /* Espacement horizontal */
+}
+
+.cta-title {
+  font-size: 2.5rem; /* Taille du titre */
+  font-weight: 700; /* Police grasse */
+  margin-bottom: 20px; /* Espacement en bas */
+}
+
+.cta-subtitle {
+  font-size: 1.2rem; /* Taille du sous-titre */
+  margin-bottom: 40px; /* Espacement en bas */
+  opacity: 0.9; /* Légère transparence */
+  line-height: 1.5; /* Espacement des lignes */
+}
+
+.cta-buttons {
+  display: flex; /* Affichage flexbox */
+  justify-content: center; /* Centrage horizontal */
+  gap: 20px; /* Espacement entre les boutons */
+  flex-wrap: wrap; /* Retour à la ligne si nécessaire */
+}
+
+.cta-button {
+  padding: 16px 32px; /* Espacement interne */
+  border-radius: 12px; /* Coins arrondis */
+  font-size: 1.1rem; /* Taille de police */
+  font-weight: 600; /* Police semi-grasse */
+  text-decoration: none; /* Supprime le soulignement */
+  transition: all 0.3s ease; /* Transition fluide */
+  display: inline-block; /* Affichage en ligne-bloc */
+  min-width: 180px; /* Largeur minimale */
+  text-align: center; /* Centrage du texte */
+}
+
+.cta-button.primary {
+  background: var(--about-secondary); /* Fond orange */
+  color: white; /* Texte blanc */
+  border: 2px solid var(--about-secondary); /* Bordure orange */
+}
+
+.cta-button.primary:hover {
+  background: #d97706; /* Orange plus foncé au survol */
+  border-color: #d97706; /* Bordure plus foncée au survol */
+  transform: translateY(-2px); /* Légère élévation */
+  box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4); /* Ombre orangée */
+}
+
+.cta-button.secondary {
+  background: transparent; /* Fond transparent */
+  color: white; /* Texte blanc */
+  border: 2px solid white; /* Bordure blanche */
+}
+
+.cta-button.secondary:hover {
+  background: white; /* Fond blanc au survol */
+  color: var(--about-text); /* Texte sombre au survol */
+  transform: translateY(-2px); /* Légère élévation */
+}
+
+/* Section de contact */
+.about-contact {
+  padding: 100px 0; /* Espacement vertical */
+  background: white; /* Fond blanc */
+}
+
+.contact-info {
+  display: grid; /* Affichage en grille */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Colonnes adaptatives */
+  gap: 40px; /* Espacement entre les éléments */
+  margin-top: 20px; /* Espacement en haut */
+}
+
+.contact-item {
+  display: flex; /* Affichage flexbox */
+  align-items: center; /* Alignement vertical */
+  gap: 20px; /* Espacement entre les éléments */
+  padding: 30px; /* Espacement interne */
+  background: var(--about-background); /* Fond clair */
+  border-radius: 16px; /* Coins arrondis */
+  transition: all 0.3s ease; /* Transition fluide */
+  border: 1px solid var(--about-border); /* Bordure */
+}
+
+.contact-item:hover {
+  transform: translateY(-3px); /* Élévation au survol */
+  box-shadow: var(--about-shadow); /* Ombre au survol */
+}
+
+.contact-icon {
+  font-size: 2.5rem; /* Taille de l'icône */
+  flex-shrink: 0; /* Empêche la réduction */
+}
+
+.contact-text h3 {
+  font-size: 1.2rem; /* Taille du titre */
+  font-weight: 600; /* Police semi-grasse */
+  color: var(--about-text); /* Couleur du texte */
+  margin-bottom: 8px; /* Espacement en bas */
+}
+
+.contact-text p {
+  color: var(--about-text-light); /* Couleur du texte clair */
+  font-size: 1rem; /* Taille de police */
+  margin: 0; /* Pas de marge */
+  line-height: 1.4; /* Espacement des lignes */
+}
+
+/* Animations */
+@keyframes slideInDown {
+  from {
+    opacity: 0; /* Transparent au début */
+    transform: translateY(-30px); /* Position plus haute */
+  }
+  to {
+    opacity: 1; /* Opaque à la fin */
+    transform: translateY(0); /* Position normale */
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0; /* Transparent au début */
+    transform: translateY(30px); /* Position plus basse */
+  }
+  to {
+    opacity: 1; /* Opaque à la fin */
+    transform: translateY(0); /* Position normale */
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0); /* Position normale */
+  }
+  40% {
+    transform: translateY(-10px); /* Position haute */
+  }
+  60% {
+    transform: translateY(-5px); /* Position moyenne */
+  }
+}
+
+/* Responsive design pour tablettes */
+@media (max-width: 768px) {
+  .about-title {
+    font-size: 2.5rem; /* Réduit la taille du titre */
+  }
+  
+  .about-subtitle {
+    font-size: 1.1rem; /* Réduit la taille du sous-titre */
+  }
+  
+  .section-title {
+    font-size: 2rem; /* Réduit la taille des titres de section */
+  }
+  
+  .about-story .about-container {
+    grid-template-columns: 1fr; /* Une seule colonne */
+    gap: 40px; /* Réduit l'espacement */
+  }
+  
+  .mission-content,
+  .stats-grid,
+  .values-grid,
+  .team-grid,
+  .testimonials-grid {
+    grid-template-columns: 1fr; /* Une seule colonne */
+    gap: 30px; /* Réduit l'espacement */
+  }
+  
+  .cta-buttons {
+    flex-direction: column; /* Direction verticale */
+    align-items: center; /* Centrage horizontal */
+  }
+  
+  .contact-info {
+    grid-template-columns: 1fr; /* Une seule colonne */
+  }
+}
+
+/* Responsive design pour mobiles */
+@media (max-width: 480px) {
+  .about-page {
+    padding-top: 60px; /* Réduit l'espacement pour la navbar mobile */
+  }
+  
+  .about-hero {
+    padding: 80px 0; /* Réduit l'espacement vertical */
+  }
+  
+  .about-title {
+    font-size: 2rem; /* Réduit encore la taille du titre */
+  }
+  
+  .about-subtitle {
+    font-size: 1rem; /* Réduit encore la taille du sous-titre */
+  }
+  
+  .about-hero-icon {
+    font-size: 3rem; /* Réduit la taille de l'icône */
+  }
+  
+  .about-story,
+  .about-mission,
+  .about-stats,
+  .about-values,
+  .about-team,
+  .about-testimonials,
+  .about-cta,
+  .about-contact {
+    padding: 60px 0; /* Réduit l'espacement vertical */
+  }
+  
+  .section-title {
+    font-size: 1.8rem; /* Réduit encore la taille des titres */
+    margin-bottom: 30px; /* Réduit l'espacement */
+  }
+  
+  .mission-card,
+  .value-card,
+  .team-card,
+  .testimonial-card {
+    padding: 25px 20px; /* Réduit l'espacement interne */
+  }
+  
+  .stat-card {
+    padding: 25px 15px; /* Réduit l'espacement interne */
+  }
+  
+  .contact-item {
+    flex-direction: column; /* Direction verticale */
+    text-align: center; /* Centrage du contenu */
+    gap: 15px; /* Réduit l'espacement */
+  }
+  
+  .cta-title {
+    font-size: 2rem; /* Réduit la taille du titre CTA */
+  }
+  
+  .cta-subtitle {
+    font-size: 1rem; /* Réduit la taille du sous-titre CTA */
+  }
+} 
